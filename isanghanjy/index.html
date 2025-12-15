@@ -19,18 +19,18 @@
         .delay-400 { animation-delay: 0.4s; }
         .delay-600 { animation-delay: 0.6s; }
 
-        /* [수정됨] 무한 스크롤 애니메이션 (속도 차별화) */
+        /* [수정됨] 무한 스크롤 애니메이션 (속도 최적화) */
         
-        /* 왼쪽으로 흐르기 (Basic: 느리게 - 60초) */
+        /* 왼쪽으로 흐르기 (Basic: 30초로 단축 - 요청사항 반영) */
         @keyframes scroll-left {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
         }
         .animate-scroll-left {
-            animation: scroll-left 60s linear infinite;
+            animation: scroll-left 30s linear infinite; /* 60s -> 30s */
         }
         
-        /* 오른쪽으로 흐르기 (Premium: 빠르게 - 15초) */
+        /* 오른쪽으로 흐르기 (Premium: 15초 - 속도감 유지) */
         @keyframes scroll-right {
             from { transform: translateX(-50%); }
             to { transform: translateX(0); }
@@ -82,17 +82,18 @@
                     
                     <div class="md:w-1/2 text-left">
                         <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-[#4A80F3] text-sm font-bold mb-6 tracking-wide fade-in-up">
-                            HEAVY USER & OPERATOR
+                            FROM LOYAL CUSTOMER TO OPERATOR
                         </div>
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900 fade-in-up delay-200">
-                            200만 원 결제한<br>
-                            <span class="text-gray-400">수강생</span>에서,<br>
-                            <span class="text-[#4A80F3]">매출을 만드는<br>운영자</span>로.
+                            고객의 마음을 가장 잘 아는<br>
+                            <span class="text-gray-400">헤비유저</span>에서,<br>
+                            <span class="text-[#4A80F3]">서비스를 성장시키는<br>운영자</span>로.
                         </h1>
                         <p class="text-xl text-[#555555] leading-relaxed mb-10 fade-in-up delay-400">
-                            이상한마케팅 불합격 후 1년,<br>
-                            프드프의 철학을 오프라인 실전에서<br>
-                            <strong>'19배 성장'</strong>으로 증명하고 돌아왔습니다.
+                            지난 1년간 30개 이상의 강의를 직접 섭렵하며<br>
+                            <strong>수강생들이 겪는 '어려움'과 '숨은 니즈'</strong>를 체득했습니다.<br>
+                            이 <strong>'고객 관점의 통찰력'</strong>에 실전 성과로 증명한<br>
+                            <strong>'실행력'</strong>을 더해 프드프의 성장을 견인하겠습니다.
                         </p>
                         <div class="flex gap-4 fade-in-up delay-600">
                             <a href="portfolio.html" class="inline-flex justify-center items-center bg-[#4A80F3] text-white font-bold text-lg py-4 px-8 rounded-xl hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
@@ -106,7 +107,7 @@
                             <img src="images/my_classroom.png" alt="프드프 내 강의실 수강 인증 화면" class="w-full h-auto object-cover bg-gray-100">
                         </div>
                         <div class="absolute -right-4 top-6 bg-yellow-400 text-yellow-900 text-xs font-extrabold px-4 py-2 rounded-full shadow-lg transform rotate-6 z-20 border-2 border-white">
-                            TOTAL SPENT: ₩2,000,000+
+                            TOTAL INVESTMENT: ₩2,000,000+
                         </div>
                     </div>
                 </div>
@@ -201,10 +202,13 @@
 
         <section class="py-24 md:py-32 bg-[#FAFAFA]">
             <div class="max-w-3xl mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 fade-in-up">핵심 가치 제안</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 fade-in-up">핵심 가치: "고객 경험(UX)을 꿰뚫는 운영"</h2>
                 <p class="text-lg md:text-xl leading-loose text-[#333333] fade-in-up delay-200">
-                    저는 <strong class="font-semibold text-[#4A80F3]">'고객의 불편함'</strong>을 데이터로 발견하고, 이를 <strong class="font-semibold text-[#4A80F3]">'시스템'</strong>으로 해결해내는 운영 기획자입니다.
-                    개발 지식을 갖춘 <strong class="font-semibold text-[#4A80F3]">'실행력'</strong>과 시키지 않아도 일을 찾는 <strong class="font-semibold text-[#4A80F3]">'능동성'</strong>으로, 프드프 플랫폼의 비효율을 제거하고 고객 경험을 최적화하겠습니다.
+                    <strong>"고객으로서 서비스를 오래 지켜봐 온 사람만이 가질 수 있는 '디테일'이 있습니다."</strong><br><br>
+                    단순한 관리자를 넘어, 외부인의 시선으로는 놓치기 쉬운<br>
+                    <strong>'수강생의 맥락'</strong>과 <strong>'숨은 니즈'</strong>를 정확히 이해하고 있습니다.<br>
+                    개발 지식을 갖춘 <strong>'실행력'</strong>에 <strong>'고객 관점의 통찰력'</strong>을 더해,<br>
+                    가려운 곳을 긁어주는 <strong>'센스 있는 운영'</strong>으로 프드프의 팬덤을 강화하겠습니다.
                 </p>
             </div>
         </section>
