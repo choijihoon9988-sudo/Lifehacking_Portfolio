@@ -13,15 +13,15 @@
 </head>
 <body class="bg-white text-[#333333] tracking-tight flex flex-col min-h-screen">
 
-    <header class="fixed top-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-sm z-10">
+    <header class="fixed top-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-sm z-10 shadow-sm">
         <div class="max-w-5xl mx-auto px-6">
-            <nav class="flex justify-between items-center h-20">
+            <nav class="flex justify-between items-center h-20" aria-label="메인 네비게이션">
                 <a href="index.html" class="text-lg font-bold text-[#333333]">최재영</a>
                 <div class="space-x-8 font-medium text-[#555555]">
                     <a href="index.html" class="hover:text-[#4A80F3] transition-colors">메인</a>
                     <a href="portfolio.html" class="hover:text-[#4A80F3] transition-colors">포트폴리오</a>
-                    <a href="resume.html" class="hover:text-[#4A80F3] transition-colors">경력기술서</a>
                     <a href="proposal.html" class="hover:text-[#4A80F3] transition-colors">미래 기여 제안</a>
+                    <a href="resume.html" class="text-[#4A80F3] font-bold" aria-current="page">경력기술서</a>
                 </div>
             </nav>
         </div>
@@ -111,11 +111,19 @@
                 </div>
             </section>
 
-            <section class="text-center py-16 bg-[#FAFAFA] rounded-2xl mb-20 md:mb-24">
-                <h2 class="text-2xl md:text-3xl font-bold mb-10"> 지금까지의 경험이 어떻게 귀사의 '미래 가치'가 될 수 있는지,<br class="hidden md:block"> 다음 페이지에서 전략으로 제안합니다.
+            <section class="text-center py-20 bg-[#FAFAFA] rounded-2xl mb-20 md:mb-24">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
+                    문제를 해결하는 사람,<br>
+                    <span class="text-[#4A80F3]">최재영</span>입니다.
                 </h2>
-                <a href="proposal.html" class="inline-block bg-[#4A80F3] text-white font-bold text-lg py-4 px-10 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105">
-                    미래 기여 제안 확인하기
+                <p class="text-lg text-[#555555] mb-10 max-w-3xl mx-auto leading-relaxed">
+                    화려한 스펙보다는 투박한 '실행'으로,<br>
+                    말보다는 확실한 '결과'로 증명하겠습니다.<br><br>
+                    라이프해킹의 성장에 기여할 기회를 기다립니다.
+                </p>
+                <a href="mailto:tenmilliplus@naver.com" class="inline-flex items-center justify-center bg-[#4A80F3] text-white font-bold text-xl py-4 px-10 rounded-full hover:bg-blue-600 transition-all duration-300 shadow-[0_10px_20px_rgba(74,128,243,0.3)] hover:shadow-[0_15px_30px_rgba(74,128,243,0.4)] hover:-translate-y-1">
+                    면접 제안하기 
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </a>
             </section>
 
@@ -161,19 +169,24 @@
     
     <footer class="py-12 bg-[#FAFAFA] border-t border-gray-200">
         <div class="max-w-5xl mx-auto px-6 text-center text-[#555555]">
-            <p>&copy; 2025 Choi Jae Young. All Rights Reserved.</p>
-            <p class="text-sm mt-2 mb-4">본 웹사이트는 이상한마케팅 '콘텐츠 마케터(PM)' 직무 지원을 위해 제작되었습니다.</p>
+            <p class="font-bold mb-2">&copy; 2025 Choi Jae Young. All Rights Reserved.</p>
+            <p class="text-xs text-gray-400 mt-2">본 웹사이트는 라이프해킹(프드프) '경영지원/운영' 직무 지원을 위해 제작되었습니다.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // 네비게이션 활성 링크 로직 (통일됨)
             const links = document.querySelectorAll('header nav a');
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             links.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage) {
                     link.classList.add('text-[#4A80F3]', 'font-bold', 'underline', 'decoration-2', 'underline-offset-4');
                     link.classList.remove('hover:text-[#4A80F3]');
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.classList.remove('text-[#4A80F3]', 'font-bold', 'underline', 'decoration-2', 'underline-offset-4');
                 }
             });
         });
