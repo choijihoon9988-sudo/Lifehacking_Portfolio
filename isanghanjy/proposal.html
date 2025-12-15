@@ -10,20 +10,69 @@
         body { font-family: 'Pretendard', sans-serif; }
         
         /* 비디오 반응형 컨테이너 */
-        .video-container {
+        .video-wrapper {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 비율 */
             height: 0;
             overflow: hidden;
             border-radius: 1rem;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background-color: #000;
+            cursor: pointer;
         }
-        .video-container iframe {
+        
+        /* 비디오 커버 (썸네일 역할) */
+        .video-cover {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://img.youtube.com/vi/A69ptlYc8bI/maxresdefault.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .video-cover:hover {
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://img.youtube.com/vi/A69ptlYc8bI/maxresdefault.jpg') center/cover no-repeat;
+        }
+        
+        /* 재생 버튼 스타일 */
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .video-wrapper:hover .play-btn {
+            transform: scale(1.1);
+            background-color: #4A80F3;
+        }
+        .video-wrapper:hover .play-btn svg {
+            color: white;
+        }
+        .play-btn svg {
+            width: 30px;
+            height: 30px;
+            margin-left: 4px; /* 시각적 보정 */
+            color: #4A80F3;
+            transition: color 0.3s ease;
+        }
+
+        .video-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
         }
 
         /* 호버 효과 */
@@ -56,37 +105,52 @@
         <div class="max-w-4xl mx-auto px-6">
             
             <header class="text-center mb-16">
-                <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#4A80F3] text-sm font-bold mb-4 tracking-wide">OPERATIONAL EFFICIENCY</span>
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#4A80F3] text-sm font-bold mb-6 tracking-wide">OPERATIONAL EFFICIENCY</span>
+                
                 <h1 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-                    반복되는 '비효율'을<br>
-                    <span class="text-[#4A80F3]">시스템</span>으로 해결합니다.
+                    신입 교육 피드백,<br>
+                    이제 <span class="text-[#4A80F3]">사람이 하지 마세요.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-[#555555] leading-relaxed max-w-2xl mx-auto">
-                    "교육과 피드백에 낭비되는 리소스를 어떻게 줄일 수 있을까?"<br>
-                    이 질문 하나에서 시작해 제가 직접 기획하고 개발한<br>
-                    <strong>자동화 솔루션 '쪼개기 마스터'</strong>를 제안합니다.
+                
+                <p class="text-lg md:text-xl text-[#555555] leading-relaxed max-w-2xl mx-auto mb-10">
+                    반복되는 교육과 피드백 리소스 낭비를 막기 위해,<br>
+                    <strong>AI가 사고 과정을 코칭하는 '자동화 솔루션'</strong>을 직접 개발했습니다.
                 </p>
+
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-sm font-semibold text-gray-600 bg-gray-50 rounded-xl p-6 mx-auto max-w-3xl border border-gray-100">
+                    <div class="flex items-center">
+                        <span class="bg-white border border-gray-200 w-8 h-8 flex items-center justify-center rounded-full mr-2 shadow-sm text-[#4A80F3]">1</span>
+                        구성원이 글쓰기/사고 훈련 입력
+                    </div>
+                    <div class="hidden md:block text-gray-300">→</div>
+                    <div class="flex items-center">
+                        <span class="bg-white border border-gray-200 w-8 h-8 flex items-center justify-center rounded-full mr-2 shadow-sm text-[#4A80F3]">2</span>
+                        AI가 실시간 분석 및 1:1 피드백
+                    </div>
+                    <div class="hidden md:block text-gray-300">→</div>
+                    <div class="flex items-center">
+                        <span class="bg-white border border-gray-200 w-8 h-8 flex items-center justify-center rounded-full mr-2 shadow-sm text-[#4A80F3]">3</span>
+                        관리자 개입 없이 '체화' 완료
+                    </div>
+                </div>
             </header>
 
             <section class="mb-24">
-                <div class="bg-[#F8FAFC] border-l-4 border-[#4A80F3] p-6 md:p-8 rounded-r-xl mb-8 shadow-sm">
-                    <h3 class="text-lg font-bold text-[#1E293B] mb-2 flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-[#4A80F3]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        영상 시청 전, 꼭 확인해주세요
-                    </h3>
-                    <p class="text-[#475569] leading-relaxed text-sm md:text-base">
-                        본 영상은 과거 대행팀 지원 당시 제작되었으나, 
-                        <strong>이 솔루션의 본질(교육 효율화, 사고의 시스템화)은 라이프해킹의 운영 효율화와 직결된다고 생각하여 첨부합니다.</strong>
-                        <br><br>
-                        영상 속 '대행팀'이라는 단어 대신, <strong>'프드프의 운영 리소스 절감'</strong>이라는 관점으로 봐주시면 감사하겠습니다.
-                    </p>
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">🛠️ 솔루션 시연 영상: '쪼개기 마스터'</h2>
+                    <p class="text-gray-500 mt-2">클릭하여 작동 원리를 확인하세요.</p>
                 </div>
 
-                <div class="video-container mb-10">
-                    <iframe src="https://www.youtube.com/embed/A69ptlYc8bI?rel=0" title="쪼개기 마스터 시연 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-wrapper" id="videoWrapper" onclick="openVideoModal()">
+                    <div class="video-cover" id="videoCover">
+                        <div class="play-btn">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                    <div id="videoContainer" class="video-iframe hidden"></div>
                 </div>
                 
-                <div class="text-center">
+                <div class="text-center mt-8">
                     <a href="https://jjokegi-master.web.app/" target="_blank" class="inline-flex items-center justify-center w-full md:w-auto bg-[#4A80F3] text-white text-lg font-bold py-4 px-8 rounded-xl hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                         <span>🚀 '쪼개기 마스터' 웹사이트 직접 사용해보기</span>
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -99,8 +163,8 @@
 
             <section class="mb-24">
                 <div class="text-center mb-12">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-4">어떻게 '비효율'을 해결했나?</h2>
-                    <p class="text-[#555555]">사람이 하던 '반복 노동'을 시스템이 대신합니다.</p>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">왜 이 시스템이 필요한가?</h2>
+                    <p class="text-[#555555]">사람이 하던 '반복 노동'을 시스템이 대신해야, 창의적인 일을 할 수 있습니다.</p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6">
@@ -149,12 +213,75 @@
         </div>
     </main>
 
+    <div id="videoContextModal" class="fixed inset-0 bg-black bg-opacity-80 z-[100] flex justify-center items-center p-6 hidden">
+        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full p-8 transform transition-all scale-100 relative">
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-blue-100 text-[#4A80F3] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">영상 시청 전, 꼭 확인해주세요</h3>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-5 mb-6 text-left border border-gray-200">
+                <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                    본 영상은 과거 대행팀 지원 당시 제작되었으나, 
+                    <strong>이 솔루션의 본질(교육 효율화, 사고의 시스템화)은 라이프해킹의 운영 효율화와 직결된다고 확신하여 첨부합니다.</strong>
+                </p>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                    영상 속 '대행팀'이라는 단어 대신, <strong class="text-[#4A80F3]">'프드프의 운영 리소스 절감'</strong>이라는 관점으로 봐주시면 감사하겠습니다.
+                </p>
+            </div>
+
+            <button onclick="playVideo()" class="w-full bg-[#4A80F3] text-white font-bold text-lg py-3 rounded-lg hover:bg-blue-700 transition-colors shadow-md flex items-center justify-center">
+                확인했습니다 (영상 재생)
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </button>
+        </div>
+    </div>
+
     <footer class="py-12 bg-[#FAFAFA] border-t border-gray-200 mt-12">
         <div class="max-w-5xl mx-auto px-6 text-center text-[#555555]">
             <p>&copy; 2025 Choi Jae Young. All Rights Reserved.</p>
             <p class="text-sm mt-2 mb-4">본 웹사이트는 라이프해킹(프드프) '경영지원/운영' 직무 지원을 위해 제작되었습니다.</p>
         </div>
     </footer>
+
+    <script>
+        // Modal Logic
+        const modal = document.getElementById('videoContextModal');
+        const videoWrapper = document.getElementById('videoWrapper');
+        const videoCover = document.getElementById('videoCover');
+        const videoContainer = document.getElementById('videoContainer');
+        const youtubeId = 'A69ptlYc8bI'; // 영상 ID
+
+        function openVideoModal() {
+            modal.classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            modal.classList.add('hidden');
+        }
+
+        function playVideo() {
+            closeVideoModal();
+            // 커버 숨기기
+            videoCover.style.display = 'none';
+            // iframe 생성 및 자동 재생
+            videoContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0" title="쪼개기 마스터 시연 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>`;
+            videoContainer.classList.remove('hidden');
+        }
+
+        // 모달 바깥 클릭 시 닫기
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeVideoModal();
+            }
+        }
+    </script>
 
 </body>
 </html>
