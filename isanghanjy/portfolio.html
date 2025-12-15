@@ -254,9 +254,9 @@
                 <a href="index.html" class="text-lg font-bold text-[#333333]">최재영</a>
                 <div class="space-x-8 font-medium text-[#555555]">
                     <a href="index.html" class="hover:text-[#4A80F3] transition-colors">메인</a>
-                    <a href="portfolio.html" class="hover:text-[#4A80F3] transition-colors" aria-current="page">포트폴리오</a>
-                    <a href="resume.html" class="hover:text-[#4A80F3] transition-colors">경력기술서</a>
+                    <a href="portfolio.html" class="hover:text-[#4A80F3] transition-colors">포트폴리오</a>
                     <a href="proposal.html" class="hover:text-[#4A80F3] transition-colors">미래 기여 제안</a>
+                    <a href="resume.html" class="hover:text-[#4A80F3] transition-colors">경력기술서</a>
                 </div>
             </nav>
         </div>
@@ -1130,18 +1130,21 @@
                  }
             });
 
-             // === 네비게이션 활성 링크 스크립트 ===
+             // === 네비게이션 활성 링크 스크립트 (통일된 버전 적용) ===
             const links = document.querySelectorAll('header nav a');
-            let currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            // index.html은 경로가 '/' 또는 ''일 수 있으므로, 'index.html'로 통일하여 처리
+            let currentPage = window.location.pathname.split('/').pop() || 'index.html'; 
             links.forEach(link => {
                 const linkPage = link.getAttribute('href');
-                if (linkPage === currentPage) {
-                    link.classList.add('text-[#4A80F3]', 'font-bold');
+                // 현재 페이지를 감지하여 활성 스타일 지정 (index.html 호환성 추가)
+                if (linkPage === currentPage || (linkPage === 'index.html' && currentPage === '')) {
+                    // TailwindCSS 클래스를 직접 적용하여 활성 스타일 지정
+                    link.classList.add('text-[#4A80F3]', 'font-bold', 'underline', 'decoration-2', 'underline-offset-4');
                     link.classList.remove('hover:text-[#4A80F3]');
                     link.setAttribute('aria-current', 'page');
                 } else {
                     link.removeAttribute('aria-current');
-                    link.classList.remove('text-[#4A80F3]', 'font-bold');
+                    link.classList.remove('text-[#4A80F3]', 'font-bold', 'underline', 'decoration-2', 'underline-offset-4');
                 }
             });
 
