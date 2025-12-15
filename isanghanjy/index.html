@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>최재영 | '고객 성공'을 위한 가치 제안</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    
     <style>
         body { font-family: 'Pretendard', sans-serif; }
         
@@ -19,37 +24,24 @@
         .delay-400 { animation-delay: 0.4s; }
         .delay-600 { animation-delay: 0.6s; }
 
-        /* [수정됨] 무한 스크롤 애니메이션 (속도 최적화) */
-        
-        /* 왼쪽으로 흐르기 (Basic: 30초로 단축 - 요청사항 반영) */
-        @keyframes scroll-left {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-        .animate-scroll-left {
-            animation: scroll-left 30s linear infinite; /* 60s -> 30s */
-        }
-        
-        /* 오른쪽으로 흐르기 (Premium: 15초 - 속도감 유지) */
-        @keyframes scroll-right {
-            from { transform: translateX(-50%); }
-            to { transform: translateX(0); }
-        }
-        .animate-scroll-right {
-            animation: scroll-right 15s linear infinite;
-        }
-
-        /* 호버 시 멈춤 */
-        .animate-paused:hover {
-            animation-play-state: paused;
-        }
-
         .nav-active {
             color: #4A80F3;
             font-weight: 700;
             text-decoration: underline;
             text-decoration-thickness: 2px;
             text-underline-offset: 4px;
+        }
+
+        /* Swiper 커스텀 스타일 */
+        .swiper {
+            width: 100%;
+            padding-bottom: 20px;
+        }
+        .swiper-wrapper {
+            transition-timing-function: linear; /* 끊김 없는 흐름 */
+        }
+        .swiper-slide {
+            width: auto; /* 이미지 크기에 맞게 자동 조절 */
         }
     </style>
 </head>
@@ -113,88 +105,55 @@
                 </div>
             </div>
 
-            <div class="w-full bg-white border-t border-gray-200 py-8 z-20 shadow-inner">
+            <div class="w-full bg-white border-t border-gray-200 py-10 z-20 shadow-inner relative">
                 <p class="text-center text-[10px] md:text-xs font-bold text-gray-400 mb-6 tracking-[0.2em] uppercase">
-                    Verified Knowledge Assets (Total 32)
+                    Verified Knowledge Assets (Drag to Explore <span class="text-lg align-middle">↔</span>)
                 </p>
-                <div class="flex flex-col gap-6">
+                <div class="flex flex-col gap-8 relative">
                     
-                    <div class="relative w-full flex overflow-hidden">
-                        <div class="flex animate-scroll-right animate-paused whitespace-nowrap gap-6 px-4">
-                            <img src="images/premium_01.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P1">
-                            <img src="images/premium_02.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P2">
-                            <img src="images/premium_03.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P3">
-                            <img src="images/premium_04.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P4">
-                            <img src="images/premium_05.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P5">
-                            <img src="images/premium_06.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P6">
-                            <img src="images/premium_07.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P7">
-                            <img src="images/premium_08.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P8">
-                            <img src="images/premium_09.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P9">
-                            <img src="images/premium_10.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P10">
-
-                            <img src="images/premium_01.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P1">
-                            <img src="images/premium_02.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P2">
-                            <img src="images/premium_03.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P3">
-                            <img src="images/premium_04.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P4">
-                            <img src="images/premium_05.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P5">
-                            <img src="images/premium_06.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P6">
-                            <img src="images/premium_07.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P7">
-                            <img src="images/premium_08.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P8">
-                            <img src="images/premium_09.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P9">
-                            <img src="images/premium_10.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P10">
+                    <div class="swiper mySwiperPremium">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide px-3"><img src="images/premium_01.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/premium_02.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/premium_03.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/premium_04.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/premium_05.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/premium_06.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/premium_07.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/premium_08.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/premium_09.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/premium_10.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
                         </div>
                     </div>
 
-                    <div class="relative w-full flex overflow-hidden">
-                        <div class="flex animate-scroll-left animate-paused whitespace-nowrap gap-6 px-4">
-                            <img src="images/basic_01.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B1">
-                            <img src="images/basic_02.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B2">
-                            <img src="images/basic_03.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B3">
-                            <img src="images/basic_04.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B4">
-                            <img src="images/basic_05.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B5">
-                            <img src="images/basic_06.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B6">
-                            <img src="images/basic_07.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B7">
-                            <img src="images/basic_08.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B8">
-                            <img src="images/basic_09.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B9">
-                            <img src="images/basic_10.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B10">
-                            <img src="images/basic_11.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B11">
-                            <img src="images/basic_12.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B12">
-                            <img src="images/basic_13.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B13">
-                            <img src="images/basic_14.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B14">
-                            <img src="images/basic_15.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B15">
-                            <img src="images/basic_16.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B16">
-                            <img src="images/basic_17.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B17">
-                            <img src="images/basic_18.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B18">
-                            <img src="images/basic_19.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B19">
-                            <img src="images/basic_20.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B20">
-                            <img src="images/basic_21.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B21">
-                            <img src="images/basic_22.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B22">
-
-                            <img src="images/basic_01.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B1">
-                            <img src="images/basic_02.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B2">
-                            <img src="images/basic_03.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B3">
-                            <img src="images/basic_04.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B4">
-                            <img src="images/basic_05.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B5">
-                            <img src="images/basic_06.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B6">
-                            <img src="images/basic_07.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B7">
-                            <img src="images/basic_08.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B8">
-                            <img src="images/basic_09.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B9">
-                            <img src="images/basic_10.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B10">
-                            <img src="images/basic_11.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B11">
-                            <img src="images/basic_12.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B12">
-                            <img src="images/basic_13.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B13">
-                            <img src="images/basic_14.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B14">
-                            <img src="images/basic_15.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B15">
-                            <img src="images/basic_16.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B16">
-                            <img src="images/basic_17.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B17">
-                            <img src="images/basic_18.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B18">
-                            <img src="images/basic_19.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B19">
-                            <img src="images/basic_20.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B20">
-                            <img src="images/basic_21.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B21">
-                            <img src="images/basic_22.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B22">
+                    <div class="swiper mySwiperBasic">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide px-3"><img src="images/basic_01.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_02.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_03.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_04.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_05.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_06.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_07.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_08.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_09.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_10.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_11.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_12.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_13.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_14.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_15.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_16.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_17.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_18.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_19.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_20.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_21.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
+                            <div class="swiper-slide px-3"><img src="images/basic_22.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-grab active:cursor-grabbing"></div>
                         </div>
                     </div>
                 </div>
+                
                 <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent pointer-events-none z-10"></div>
                 <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent pointer-events-none z-10"></div>
             </div>
@@ -229,6 +188,41 @@
             <p class="text-sm mt-2 mb-4">본 웹사이트는 라이프해킹(프드프) '경영지원/운영' 직무 지원을 위해 제작되었습니다.</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // 1. 프리미엄 강의 슬라이더 (오른쪽으로 빠르게 흐름)
+        const swiperPremium = new Swiper('.mySwiperPremium', {
+            slidesPerView: 'auto', // 이미지 크기만큼 공간 차지
+            spaceBetween: 24,      // 이미지 사이 간격
+            loop: true,            // 무한 루프
+            speed: 4000,           // 속도 (낮을수록 빠름, 10개니까 좀 빠르게)
+            allowTouchMove: true,  // 마우스 드래그 허용
+            grabCursor: true,      // 마우스 커서 손 모양
+            autoplay: {
+                delay: 0,                  // 딜레이 없이 계속 흐름
+                disableOnInteraction: false, // 유저가 건드려도 다시 재생
+                reverseDirection: true,    // 오른쪽 방향으로 흐름
+                pauseOnMouseEnter: true    // 마우스 올리면 멈춤! (관찰 가능)
+            }
+        });
+
+        // 2. 베이직 자료 슬라이더 (왼쪽으로 여유롭게 흐름)
+        const swiperBasic = new Swiper('.mySwiperBasic', {
+            slidesPerView: 'auto',
+            spaceBetween: 24,
+            loop: true,
+            speed: 8000,           // 속도 (높을수록 느림, 22개니까 천천히 보여줌)
+            allowTouchMove: true,  // 드래그 허용
+            grabCursor: true,      // 마우스 커서 손 모양
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+                reverseDirection: false,   // 왼쪽 방향 (기본)
+                pauseOnMouseEnter: true    // 마우스 올리면 멈춤!
+            }
+        });
+    </script>
 
 </body>
 </html>
