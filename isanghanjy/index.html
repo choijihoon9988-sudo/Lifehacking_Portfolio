@@ -7,80 +7,190 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <style>
-        body {
-            font-family: 'Pretendard', sans-serif;
-        }
-       .fade-in-up {
-            animation: fadeInUp 1s ease-out forwards;
-            opacity: 0;
-        }
+        body { font-family: 'Pretendard', sans-serif; }
+        
+        /* 페이드인 애니메이션 */
+        .fade-in-up { animation: fadeInUp 1s ease-out forwards; opacity: 0; }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-       /* 애니메이션 지연 클래스 */
-       .delay-200 { animation-delay: 0.2s; }
-       .delay-400 { animation-delay: 0.4s; }
-       .delay-600 { animation-delay: 0.6s; }
-       .delay-800 { animation-delay: 0.8s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
 
-       /* 활성 네비게이션 링크 스타일 */
-       .nav-active {
-            color: #4A80F3; /* 파란색 */
-            font-weight: 700; /* 굵게 */
-            text-decoration: underline; /* 밑줄 */
-            text-decoration-thickness: 2px; /* 밑줄 두께 */
-            text-underline-offset: 4px; /* 밑줄 간격 */
+        /* 무한 스크롤 애니메이션 */
+        
+        /* 왼쪽으로 흐르기 (기본) */
+        @keyframes scroll-left {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
-        /* 활성 링크는 호버 효과 제거 (Tailwind CSS와 충돌 방지) */
-        .nav-active.hover\:text-\[\#4A80F3\]:hover {
-            color: #4A80F3 !important;
+        .animate-scroll-left {
+            animation: scroll-left 40s linear infinite; /* 속도 조절: 40s */
+        }
+        
+        /* 오른쪽으로 흐르기 (역방향) */
+        @keyframes scroll-right {
+            from { transform: translateX(-50%); }
+            to { transform: translateX(0); }
+        }
+        .animate-scroll-right {
+            animation: scroll-right 40s linear infinite;
         }
 
+        /* 호버 시 멈춤 */
+        .animate-paused:hover {
+            animation-play-state: paused;
+        }
 
+        .nav-active {
+            color: #4A80F3;
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
     </style>
 </head>
 <body class="bg-white text-[#333333] tracking-tight flex flex-col min-h-screen">
 
-    <header class="fixed top-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-sm z-10 border-b border-gray-200">
-        <div class="max-w-5xl mx-auto px-6">
+    <header class="fixed top-0 left-0 right-0 bg-white bg-opacity-90 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
             <nav class="flex justify-between items-center h-20">
-                <a href="index.html" class="text-lg font-bold text-[#333333] hover:text-[#4A80F3] transition-colors">최재영</a>
+                <a href="index.html" class="text-xl font-bold text-[#333333] hover:text-[#4A80F3] transition-colors">최재영</a>
                 <div class="hidden md:flex space-x-8 font-medium text-[#555555]">
-                    <a href="index.html" class="hover:text-[#4A80F3] transition-colors">메인</a>
+                    <a href="index.html" class="nav-active hover:text-[#4A80F3] transition-colors">메인</a>
                     <a href="portfolio.html" class="hover:text-[#4A80F3] transition-colors">포트폴리오</a>
                     <a href="resume.html" class="hover:text-[#4A80F3] transition-colors">경력기술서</a>
+                    <a href="proposal.html" class="hover:text-[#4A80F3] transition-colors">미래 기여 제안</a>
                 </div>
-                 <div class="md:hidden">
-                    <button id="mobile-menu-button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-black">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
-                 </div>
+                </div>
             </nav>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white shadow-md py-4">
-            <a href="index.html" class="block px-6 py-2 text-[#555555] hover:bg-gray-100">메인</a>
-            <a href="portfolio.html" class="block px-6 py-2 text-[#555555] hover:bg-gray-100">포트폴리오</a>
-            <a href="resume.html" class="block px-6 py-2 text-[#555555] hover:bg-gray-100">경력기술서</a>
         </div>
     </header>
 
-    <main class="pt-20 flex-grow">
-        <section class="min-h-screen flex items-center bg-gradient-to-b from-white to-[#FAFAFA]">
-            <div class="max-w-4xl mx-auto px-6 text-left w-full">
-                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6 fade-in-up">
-                    200만 원 결제한 '수강생'에서,<br>매출을 만드는 '운영자'로.
-                </h1>
-                <p class="text-xl md:text-2xl text-[#555555] leading-relaxed fade-in-up delay-200">
-                    이상한마케팅 불합격 후 1년, 프드프의 철학을 오프라인 실전에서<br class="hidden md:block">
-                    '19배 성장'으로 증명하고 돌아왔습니다.
+    <main class="flex-grow pt-20">
+        <section class="min-h-[90vh] flex flex-col justify-center bg-gradient-to-b from-white to-[#F0F7FF] relative overflow-hidden">
+            <div class="max-w-6xl mx-auto px-6 w-full flex flex-col md:flex-row items-center gap-12 md:gap-20 z-10 py-20">
+                
+                <div class="md:w-1/2 text-left">
+                    <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-[#4A80F3] text-sm font-bold mb-6 tracking-wide fade-in-up">
+                        HEAVY USER & OPERATOR
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900 fade-in-up delay-200">
+                        200만 원 결제한<br>
+                        <span class="text-gray-400">수강생</span>에서,<br>
+                        <span class="text-[#4A80F3]">매출을 만드는<br>운영자</span>로.
+                    </h1>
+                    <p class="text-xl text-[#555555] leading-relaxed mb-10 fade-in-up delay-400">
+                        이상한마케팅 불합격 후 1년,<br>
+                        프드프의 철학을 오프라인 실전에서<br>
+                        <strong>'19배 성장'</strong>으로 증명하고 돌아왔습니다.
+                    </p>
+                    <div class="flex gap-4 fade-in-up delay-600">
+                        <a href="portfolio.html" class="inline-flex justify-center items-center bg-[#4A80F3] text-white font-bold text-lg py-4 px-8 rounded-xl hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            증명된 역량 확인하기
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 w-full relative fade-in-up delay-600">
+                    <div class="relative rounded-2xl shadow-2xl border-4 border-white overflow-hidden transform hover:scale-[1.01] transition-transform duration-500">
+                        <img src="images/my_classroom.png" alt="프드프 내 강의실 수강 인증 화면" class="w-full h-auto object-cover bg-gray-100">
+                    </div>
+                    <div class="absolute -right-4 top-6 bg-yellow-400 text-yellow-900 text-xs font-extrabold px-4 py-2 rounded-full shadow-lg transform rotate-6 z-20 border-2 border-white">
+                        TOTAL SPENT: ₩2,000,000+
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-6 overflow-hidden z-20">
+                <p class="text-center text-[10px] md:text-xs font-bold text-gray-400 mb-4 tracking-[0.2em] uppercase">
+                    Verified Knowledge Assets (Total 31)
                 </p>
+                <div class="flex flex-col gap-4">
+                    
+                    <div class="relative w-full flex overflow-hidden">
+                        <div class="flex animate-scroll-right animate-paused whitespace-nowrap gap-6 px-4">
+                            <img src="images/premium_01.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의1">
+                            <img src="images/premium_02.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의2">
+                            <img src="images/premium_03.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의3">
+                            <img src="images/premium_04.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의4">
+                            <img src="images/premium_05.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의5">
+                            <img src="images/premium_06.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의6">
+                            <img src="images/premium_07.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의7">
+                            <img src="images/premium_08.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의8">
+                            <img src="images/premium_09.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의9">
+                            <img src="images/premium_10.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의10">
+                            <img src="images/premium_11.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의11">
+                            <img src="images/premium_12.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의12">
+                            <img src="images/premium_13.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의13">
+                            <img src="images/premium_14.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의14">
+                            <img src="images/premium_15.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의15">
+
+                            <img src="images/premium_01.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의1">
+                            <img src="images/premium_02.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의2">
+                            <img src="images/premium_03.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의3">
+                            <img src="images/premium_04.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의4">
+                            <img src="images/premium_05.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의5">
+                            <img src="images/premium_06.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의6">
+                            <img src="images/premium_07.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의7">
+                            <img src="images/premium_08.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의8">
+                            <img src="images/premium_09.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의9">
+                            <img src="images/premium_10.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의10">
+                            <img src="images/premium_11.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의11">
+                            <img src="images/premium_12.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의12">
+                            <img src="images/premium_13.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의13">
+                            <img src="images/premium_14.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의14">
+                            <img src="images/premium_15.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의15">
+                        </div>
+                    </div>
+
+                    <div class="relative w-full flex overflow-hidden">
+                        <div class="flex animate-scroll-left animate-paused whitespace-nowrap gap-6 px-4">
+                            <img src="images/basic_01.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료1">
+                            <img src="images/basic_02.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료2">
+                            <img src="images/basic_03.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료3">
+                            <img src="images/basic_04.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료4">
+                            <img src="images/basic_05.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료5">
+                            <img src="images/basic_06.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료6">
+                            <img src="images/basic_07.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료7">
+                            <img src="images/basic_08.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료8">
+                            <img src="images/basic_09.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료9">
+                            <img src="images/basic_10.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료10">
+                            <img src="images/basic_11.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료11">
+                            <img src="images/basic_12.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료12">
+                            <img src="images/basic_13.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료13">
+                            <img src="images/basic_14.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료14">
+                            <img src="images/basic_15.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료15">
+                            <img src="images/basic_16.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료16">
+
+                            <img src="images/basic_01.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료1">
+                            <img src="images/basic_02.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료2">
+                            <img src="images/basic_03.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료3">
+                            <img src="images/basic_04.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료4">
+                            <img src="images/basic_05.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료5">
+                            <img src="images/basic_06.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료6">
+                            <img src="images/basic_07.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료7">
+                            <img src="images/basic_08.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료8">
+                            <img src="images/basic_09.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료9">
+                            <img src="images/basic_10.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료10">
+                            <img src="images/basic_11.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료11">
+                            <img src="images/basic_12.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료12">
+                            <img src="images/basic_13.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료13">
+                            <img src="images/basic_14.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료14">
+                            <img src="images/basic_15.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료15">
+                            <img src="images/basic_16.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료16">
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+                <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
             </div>
         </section>
 
@@ -89,7 +199,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-8 fade-in-up">핵심 가치 제안</h2>
                 <p class="text-lg md:text-xl leading-loose text-[#333333] fade-in-up delay-200">
                     저는 <strong class="font-semibold text-[#4A80F3]">'고객의 불편함'</strong>을 데이터로 발견하고, 이를 <strong class="font-semibold text-[#4A80F3]">'시스템'</strong>으로 해결해내는 운영 기획자입니다.
-                    <strong class="font-semibold text-[#4A80F3]">'실행력'</strong>과 시키지 않아도 일을 찾는 <strong class="font-semibold text-[#4A80F3]">'능동성'</strong>으로, 프드프 플랫폼의 비효율을 제거하고 고객 경험을 최적화하겠습니다.
+                    개발 지식을 갖춘 <strong class="font-semibold text-[#4A80F3]">'실행력'</strong>과 시키지 않아도 일을 찾는 <strong class="font-semibold text-[#4A80F3]">'능동성'</strong>으로, 프드프 플랫폼의 비효율을 제거하고 고객 경험을 최적화하겠습니다.
                 </p>
             </div>
         </section>
@@ -107,64 +217,9 @@
     <footer class="py-12 bg-[#FAFAFA] border-t border-gray-200">
         <div class="max-w-5xl mx-auto px-6 text-center text-[#555555]">
             <p>&copy; 2025 Choi Jae Young. All Rights Reserved.</p>
-            <p class="text-sm mt-2 mb-4">본 웹사이트는 이상한마케팅 '콘텐츠 마케터(PM)' 직무 지원을 위해 제작되었습니다.</p>
+            <p class="text-sm mt-2 mb-4">본 웹사이트는 라이프해킹(프드프) '경영지원/운영' 직무 지원을 위해 제작되었습니다.</p>
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // --- 네비게이션 활성화 로직 ---
-            const desktopLinks = document.querySelectorAll('header nav div.hidden a'); // 데스크탑 네비 링크
-            const mobileLinks = document.querySelectorAll('#mobile-menu a'); // 모바일 네비 링크
-            let currentPage = window.location.pathname.split('/').pop();
-
-            // 루트 경로('') 또는 'index.html'일 경우 currentPage를 'index.html'로 통일
-            if (currentPage === "" || currentPage === "index.html") {
-                currentPage = 'index.html';
-            }
-
-            // 모든 링크에 대해 처리
-            function setActiveLink(links) {
-                links.forEach(link => {
-                    const linkPage = link.getAttribute('href');
-                    if (linkPage === currentPage) {
-                        link.classList.add('nav-active'); // 활성 스타일 클래스 추가
-                        link.setAttribute('aria-current', 'page'); // 접근성 속성 추가
-                        link.classList.remove('hover:text-[#4A80F3]'); // 호버 효과 제거 (CSS에서 !important 처리 필요)
-                    } else {
-                        link.classList.remove('nav-active');
-                        link.removeAttribute('aria-current');
-                    }
-                });
-            }
-
-            setActiveLink(desktopLinks);
-            setActiveLink(mobileLinks);
-
-            // --- 모바일 메뉴 토글 로직 ---
-            const menuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (menuButton && mobileMenu) {
-                menuButton.addEventListener('click', () => {
-                    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-                    menuButton.setAttribute('aria-expanded', !isExpanded);
-                    mobileMenu.classList.toggle('hidden');
-                    // 버튼 레이블 변경 (접근성 향상)
-                    menuButton.setAttribute('aria-label', isExpanded ? '메뉴 열기' : '메뉴 닫기');
-
-                    // 아이콘 변경 (선택 사항: 햄버거/X 아이콘 토글)
-                    if (!isExpanded) {
-                        // 메뉴 열릴 때 X 아이콘으로 변경 (SVG 코드 예시)
-                        menuButton.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
-                    } else {
-                        // 메뉴 닫힐 때 햄버거 아이콘으로 복귀 (SVG 코드 예시)
-                        menuButton.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>`;
-                    }
-                });
-            }
-        });
-    </script>
 
 </body>
 </html>
