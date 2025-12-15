@@ -32,6 +32,13 @@
             text-underline-offset: 4px;
         }
 
+        /* 배경 격자 패턴 (은은한 시스템 느낌) */
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, #f0f0f0 1px, transparent 1px),
+                              linear-gradient(to bottom, #f0f0f0 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
         /* Swiper 커스텀 스타일 */
         .swiper {
             width: 100%;
@@ -67,25 +74,26 @@
     </header>
 
     <main class="flex-grow pt-20">
-        <section class="min-h-screen flex flex-col bg-gradient-to-b from-white to-[#F0F7FF] overflow-hidden">
-            
-            <div class="flex-grow flex items-center justify-center py-12 md:py-20">
-                <div class="max-w-6xl mx-auto px-6 w-full flex flex-col md:flex-row items-center gap-12 md:gap-20 z-10">
+        <section class="min-h-screen flex flex-col bg-gradient-to-b from-white to-[#F0F7FF] overflow-hidden relative">
+            <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+
+            <div class="flex-grow flex items-center justify-center py-12 md:py-20 relative z-10">
+                <div class="max-w-6xl mx-auto px-6 w-full flex flex-col md:flex-row items-center gap-12 md:gap-20">
                     
                     <div class="md:w-1/2 text-left">
                         <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-[#4A80F3] text-sm font-bold mb-6 tracking-wide fade-in-up">
                             FROM LOYAL CUSTOMER TO OPERATOR
                         </div>
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900 fade-in-up delay-200">
-                            고객의 마음을 가장 잘 아는<br>
-                            <span class="text-gray-400">헤비유저</span>에서,<br>
-                            <span class="text-[#4A80F3]">서비스를 성장시키는<br>운영자</span>로.
+                        <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900 fade-in-up delay-200">
+                            총 2,223,000원 결제,<br>
+                            저는 프드프의 <span class="text-[#4A80F3]">'구매 여정'</span>을<br>
+                            40번 통과한 기획자입니다.
                         </h1>
-                        <p class="text-xl text-[#555555] leading-relaxed mb-10 fade-in-up delay-400">
-                            지난 1년간 30개 이상의 강의를 직접 섭렵하며<br>
-                            <strong>수강생들이 겪는 '어려움'과 '숨은 니즈'</strong>를 체득했습니다.<br>
-                            이 <strong>'고객 관점의 통찰력'</strong>에 실전 성과로 증명한<br>
-                            <strong>'실행력'</strong>을 더해 프드프의 성장을 견인하겠습니다.
+                        <p class="text-lg md:text-xl text-[#555555] leading-relaxed mb-10 fade-in-up delay-400">
+                            지난 1년간 헤비유저로서 체득한 <strong>'고객의 망설임'</strong>과<br>
+                            <strong>'숨은 니즈'</strong>를 정확히 이해하고 있습니다.<br>
+                            이 날카로운 <strong>'내부자의 시선'</strong>에 개발 지식을 갖춘 <strong>'실행력'</strong>을 더해,<br>
+                            프드프의 압도적인 성장을 견인하겠습니다.
                         </p>
                         <div class="flex gap-4 fade-in-up delay-600">
                             <a href="portfolio.html" class="inline-flex justify-center items-center bg-[#4A80F3] text-white font-bold text-lg py-4 px-8 rounded-xl hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
@@ -99,16 +107,13 @@
                             <img src="images/my_classroom.png" alt="프드프 내 강의실 수강 인증 화면" class="w-full h-auto object-cover bg-gray-100">
                         </div>
                         <div class="absolute -right-4 top-6 bg-yellow-400 text-yellow-900 text-xs font-extrabold px-4 py-2 rounded-full shadow-lg transform rotate-6 z-20 border-2 border-white">
-                            TOTAL INVESTMENT: ₩2,000,000+
+                            TOTAL INVESTMENT: ₩2,223,000+
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="w-full bg-white border-t border-gray-200 py-10 z-20 shadow-inner relative">
-                <p class="text-center text-xs md:text-sm font-bold text-gray-500 mb-6 uppercase tracking-wide">
-                    총 2,223,000원의 결제, 40개의 지식 자산. 저는 프드프의 '구매 여정'을 40번 통과한 기획자입니다.
-                </p>
+            <div class="w-full bg-white border-t border-gray-200 py-12 z-20 shadow-inner relative">
                 <div class="flex flex-col gap-8 relative">
                     
                     <div class="swiper mySwiperPremium">
@@ -160,32 +165,50 @@
         </section>
 
         <section class="py-24 md:py-32 bg-[#FAFAFA]">
-            <div class="max-w-3xl mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 fade-in-up">핵심 가치: "고객 경험(UX)을 꿰뚫는 운영"</h2>
-                <p class="text-lg md:text-xl leading-loose text-[#333333] fade-in-up delay-200">
-                    40번의 의사결정 과정에서 체득한 '고객의 망설임'과 '구매 트리거',<br class="hidden md:block">
-                    이제는 운영 시스템으로 풀어내겠습니다.<br><br>
-                    수강생의 맥락을 꿰뚫는 <strong>'내부자의 시선'</strong>에 개발 지식을 갖춘 <strong>'실행력'</strong>을 더해,<br>
-                    고객이 오직 '자신의 성장'에만 몰입할 수 있도록<br>
-                    <strong>불필요한 인지적 마찰을 '0'으로 만드는 </strong>불필요한 인지적 마찰을 '0'으로 만드는 섬세한 기획자가 되겠습니다."
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 fade-in-up">
+                    핵심 가치: <span class="text-[#4A80F3]">"고객 경험(UX)을 꿰뚫는 운영"</span>
+                </h2>
+                
+                <p class="text-xl md:text-2xl text-[#333333] leading-relaxed fade-in-up delay-200 font-medium">
+                    40번의 의사결정 과정에서 체득한<br>
+                    <strong>'고객의 망설임'</strong>과 <strong>'구매 트리거'</strong>,<br>
+                    이제는 <span class="text-[#4A80F3] font-bold border-b-2 border-[#4A80F3]">운영 시스템</span>으로 풀어내겠습니다.
+                </p>
+
+                <div class="my-10 w-16 h-1 bg-gray-200 mx-auto rounded-full fade-in-up delay-400"></div>
+
+                <p class="text-lg md:text-xl text-[#555555] leading-loose fade-in-up delay-600">
+                    수강생의 맥락을 꿰뚫는 <strong>'내부자의 시선'</strong>에<br>
+                    개발 지식을 갖춘 <strong>'실행력'</strong>을 더해,<br>
+                    결제를 포기하려는 찰나를 '구매'로 전환시키는<br>
+                    <strong>대체 불가능한 운영</strong>을 증명하겠습니다.
                 </p>
             </div>
         </section>
 
         <section class="py-24 md:py-32 text-center bg-white">
             <div class="max-w-4xl mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-in-up">숫자로 확인하실 수 있는 지난 1년의 과정과 결과입니다.</h2>
-                <a href="portfolio.html" class="inline-block mt-6 bg-[#4A80F3] text-white font-bold text-lg py-4 px-10 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 fade-in-up delay-400">
-                    결과 확인하기
-                </a>
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 fade-in-up">숫자로 확인하실 수 있는 지난 1년의 과정과 결과입니다.</h2>
+                
+                <div class="fade-in-up delay-200 inline-block">
+                    <a href="portfolio.html" class="group relative inline-flex items-center justify-center bg-[#4A80F3] text-white font-bold text-xl py-5 px-12 rounded-full hover:bg-blue-600 transition-all duration-300 shadow-[0_10px_20px_rgba(74,128,243,0.3)] hover:shadow-[0_15px_30px_rgba(74,128,243,0.4)] hover:-translate-y-1">
+                        <span class="absolute w-full h-full rounded-full border-2 border-[#4A80F3] opacity-30 animate-ping"></span>
+                        결과 확인하기
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                    </a>
+                    <p class="text-sm text-gray-400 mt-4 font-medium tracking-tight">
+                        (포트폴리오에서 '19배 성장'의 구체적 과정을 확인하세요)
+                    </p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="py-12 bg-[#FAFAFA] border-t border-gray-200">
         <div class="max-w-5xl mx-auto px-6 text-center text-[#555555]">
-            <p>&copy; 2025 Choi Jae Young. All Rights Reserved.</p>
-            <p class="text-sm mt-2 mb-4">본 웹사이트는 라이프해킹(프드프) '경영지원/운영' 직무 지원을 위해 제작되었습니다.</p>
+            <p class="font-bold mb-2">&copy; 2025 Choi Jae Young. All Rights Reserved.</p>
+            <p class="text-xs text-gray-400 mt-2">본 웹사이트는 라이프해킹(프드프) '경영지원/운영' 직무 지원을 위해 제작되었습니다.</p>
         </div>
     </footer>
 
@@ -193,17 +216,17 @@
     <script>
         // 1. 프리미엄 강의 슬라이더 (오른쪽으로 빠르게 흐름)
         const swiperPremium = new Swiper('.mySwiperPremium', {
-            slidesPerView: 'auto', // 이미지 크기만큼 공간 차지
-            spaceBetween: 24,      // 이미지 사이 간격
-            loop: true,            // 무한 루프
-            speed: 4000,           // 속도 (낮을수록 빠름, 10개니까 좀 빠르게)
-            allowTouchMove: true,  // 마우스 드래그 허용
-            grabCursor: true,      // 마우스 커서 손 모양
+            slidesPerView: 'auto',
+            spaceBetween: 24,
+            loop: true,
+            speed: 4000,
+            allowTouchMove: true,
+            grabCursor: true,
             autoplay: {
-                delay: 0,                  // 딜레이 없이 계속 흐름
-                disableOnInteraction: false, // 유저가 건드려도 다시 재생
-                reverseDirection: true,    // 오른쪽 방향으로 흐름
-                pauseOnMouseEnter: true    // 마우스 올리면 멈춤! (관찰 가능)
+                delay: 0,
+                disableOnInteraction: false,
+                reverseDirection: true,
+                pauseOnMouseEnter: true
             }
         });
 
@@ -212,14 +235,14 @@
             slidesPerView: 'auto',
             spaceBetween: 24,
             loop: true,
-            speed: 8000,           // 속도 (높을수록 느림, 22개니까 천천히 보여줌)
-            allowTouchMove: true,  // 드래그 허용
-            grabCursor: true,      // 마우스 커서 손 모양
+            speed: 8000,
+            allowTouchMove: true,
+            grabCursor: true,
             autoplay: {
                 delay: 0,
                 disableOnInteraction: false,
-                reverseDirection: false,   // 왼쪽 방향 (기본)
-                pauseOnMouseEnter: true    // 마우스 올리면 멈춤!
+                reverseDirection: false,
+                pauseOnMouseEnter: true
             }
         });
     </script>
