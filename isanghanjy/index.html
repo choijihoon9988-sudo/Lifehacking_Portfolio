@@ -19,24 +19,24 @@
         .delay-400 { animation-delay: 0.4s; }
         .delay-600 { animation-delay: 0.6s; }
 
-        /* 무한 스크롤 애니메이션 */
+        /* [수정됨] 무한 스크롤 애니메이션 (속도 차별화) */
         
-        /* 왼쪽으로 흐르기 (기본) */
+        /* 왼쪽으로 흐르기 (Basic: 느리게 - 60초) */
         @keyframes scroll-left {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
         }
         .animate-scroll-left {
-            animation: scroll-left 40s linear infinite; /* 속도 조절: 40s */
+            animation: scroll-left 60s linear infinite;
         }
         
-        /* 오른쪽으로 흐르기 (역방향) */
+        /* 오른쪽으로 흐르기 (Premium: 빠르게 - 15초) */
         @keyframes scroll-right {
             from { transform: translateX(-50%); }
             to { transform: translateX(0); }
         }
         .animate-scroll-right {
-            animation: scroll-right 40s linear infinite;
+            animation: scroll-right 15s linear infinite;
         }
 
         /* 호버 시 멈춤 */
@@ -75,122 +75,127 @@
     </header>
 
     <main class="flex-grow pt-20">
-        <section class="min-h-[90vh] flex flex-col justify-center bg-gradient-to-b from-white to-[#F0F7FF] relative overflow-hidden">
-            <div class="max-w-6xl mx-auto px-6 w-full flex flex-col md:flex-row items-center gap-12 md:gap-20 z-10 py-20">
-                
-                <div class="md:w-1/2 text-left">
-                    <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-[#4A80F3] text-sm font-bold mb-6 tracking-wide fade-in-up">
-                        HEAVY USER & OPERATOR
+        <section class="min-h-screen flex flex-col bg-gradient-to-b from-white to-[#F0F7FF] overflow-hidden">
+            
+            <div class="flex-grow flex items-center justify-center py-12 md:py-20">
+                <div class="max-w-6xl mx-auto px-6 w-full flex flex-col md:flex-row items-center gap-12 md:gap-20 z-10">
+                    
+                    <div class="md:w-1/2 text-left">
+                        <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-[#4A80F3] text-sm font-bold mb-6 tracking-wide fade-in-up">
+                            HEAVY USER & OPERATOR
+                        </div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900 fade-in-up delay-200">
+                            200만 원 결제한<br>
+                            <span class="text-gray-400">수강생</span>에서,<br>
+                            <span class="text-[#4A80F3]">매출을 만드는<br>운영자</span>로.
+                        </h1>
+                        <p class="text-xl text-[#555555] leading-relaxed mb-10 fade-in-up delay-400">
+                            이상한마케팅 불합격 후 1년,<br>
+                            프드프의 철학을 오프라인 실전에서<br>
+                            <strong>'19배 성장'</strong>으로 증명하고 돌아왔습니다.
+                        </p>
+                        <div class="flex gap-4 fade-in-up delay-600">
+                            <a href="portfolio.html" class="inline-flex justify-center items-center bg-[#4A80F3] text-white font-bold text-lg py-4 px-8 rounded-xl hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                증명된 역량 확인하기
+                            </a>
+                        </div>
                     </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900 fade-in-up delay-200">
-                        200만 원 결제한<br>
-                        <span class="text-gray-400">수강생</span>에서,<br>
-                        <span class="text-[#4A80F3]">매출을 만드는<br>운영자</span>로.
-                    </h1>
-                    <p class="text-xl text-[#555555] leading-relaxed mb-10 fade-in-up delay-400">
-                        이상한마케팅 불합격 후 1년,<br>
-                        프드프의 철학을 오프라인 실전에서<br>
-                        <strong>'19배 성장'</strong>으로 증명하고 돌아왔습니다.
-                    </p>
-                    <div class="flex gap-4 fade-in-up delay-600">
-                        <a href="portfolio.html" class="inline-flex justify-center items-center bg-[#4A80F3] text-white font-bold text-lg py-4 px-8 rounded-xl hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                            증명된 역량 확인하기
-                        </a>
-                    </div>
-                </div>
 
-                <div class="md:w-1/2 w-full relative fade-in-up delay-600">
-                    <div class="relative rounded-2xl shadow-2xl border-4 border-white overflow-hidden transform hover:scale-[1.01] transition-transform duration-500">
-                        <img src="images/my_classroom.png" alt="프드프 내 강의실 수강 인증 화면" class="w-full h-auto object-cover bg-gray-100">
-                    </div>
-                    <div class="absolute -right-4 top-6 bg-yellow-400 text-yellow-900 text-xs font-extrabold px-4 py-2 rounded-full shadow-lg transform rotate-6 z-20 border-2 border-white">
-                        TOTAL SPENT: ₩2,000,000+
+                    <div class="md:w-1/2 w-full relative fade-in-up delay-600">
+                        <div class="relative rounded-2xl shadow-2xl border-4 border-white overflow-hidden transform hover:scale-[1.01] transition-transform duration-500">
+                            <img src="images/my_classroom.png" alt="프드프 내 강의실 수강 인증 화면" class="w-full h-auto object-cover bg-gray-100">
+                        </div>
+                        <div class="absolute -right-4 top-6 bg-yellow-400 text-yellow-900 text-xs font-extrabold px-4 py-2 rounded-full shadow-lg transform rotate-6 z-20 border-2 border-white">
+                            TOTAL SPENT: ₩2,000,000+
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-6 overflow-hidden z-20">
-                <p class="text-center text-[10px] md:text-xs font-bold text-gray-400 mb-4 tracking-[0.2em] uppercase">
-                    Verified Knowledge Assets (Total 31)
+            <div class="w-full bg-white border-t border-gray-200 py-8 z-20 shadow-inner">
+                <p class="text-center text-[10px] md:text-xs font-bold text-gray-400 mb-6 tracking-[0.2em] uppercase">
+                    Verified Knowledge Assets (Total 32)
                 </p>
-                <div class="flex flex-col gap-4">
+                <div class="flex flex-col gap-6">
                     
                     <div class="relative w-full flex overflow-hidden">
                         <div class="flex animate-scroll-right animate-paused whitespace-nowrap gap-6 px-4">
-                            <img src="images/premium_01.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의1">
-                            <img src="images/premium_02.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의2">
-                            <img src="images/premium_03.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의3">
-                            <img src="images/premium_04.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의4">
-                            <img src="images/premium_05.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의5">
-                            <img src="images/premium_06.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의6">
-                            <img src="images/premium_07.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의7">
-                            <img src="images/premium_08.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의8">
-                            <img src="images/premium_09.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의9">
-                            <img src="images/premium_10.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의10">
-                            <img src="images/premium_11.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의11">
-                            <img src="images/premium_12.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의12">
-                            <img src="images/premium_13.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의13">
-                            <img src="images/premium_14.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의14">
-                            <img src="images/premium_15.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의15">
+                            <img src="images/premium_01.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P1">
+                            <img src="images/premium_02.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P2">
+                            <img src="images/premium_03.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P3">
+                            <img src="images/premium_04.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P4">
+                            <img src="images/premium_05.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P5">
+                            <img src="images/premium_06.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P6">
+                            <img src="images/premium_07.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P7">
+                            <img src="images/premium_08.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P8">
+                            <img src="images/premium_09.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P9">
+                            <img src="images/premium_10.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P10">
 
-                            <img src="images/premium_01.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의1">
-                            <img src="images/premium_02.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의2">
-                            <img src="images/premium_03.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의3">
-                            <img src="images/premium_04.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의4">
-                            <img src="images/premium_05.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의5">
-                            <img src="images/premium_06.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의6">
-                            <img src="images/premium_07.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의7">
-                            <img src="images/premium_08.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의8">
-                            <img src="images/premium_09.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의9">
-                            <img src="images/premium_10.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의10">
-                            <img src="images/premium_11.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의11">
-                            <img src="images/premium_12.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의12">
-                            <img src="images/premium_13.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의13">
-                            <img src="images/premium_14.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의14">
-                            <img src="images/premium_15.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="강의15">
+                            <img src="images/premium_01.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P1">
+                            <img src="images/premium_02.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P2">
+                            <img src="images/premium_03.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P3">
+                            <img src="images/premium_04.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P4">
+                            <img src="images/premium_05.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P5">
+                            <img src="images/premium_06.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P6">
+                            <img src="images/premium_07.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P7">
+                            <img src="images/premium_08.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P8">
+                            <img src="images/premium_09.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P9">
+                            <img src="images/premium_10.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="P10">
                         </div>
                     </div>
 
                     <div class="relative w-full flex overflow-hidden">
                         <div class="flex animate-scroll-left animate-paused whitespace-nowrap gap-6 px-4">
-                            <img src="images/basic_01.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료1">
-                            <img src="images/basic_02.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료2">
-                            <img src="images/basic_03.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료3">
-                            <img src="images/basic_04.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료4">
-                            <img src="images/basic_05.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료5">
-                            <img src="images/basic_06.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료6">
-                            <img src="images/basic_07.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료7">
-                            <img src="images/basic_08.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료8">
-                            <img src="images/basic_09.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료9">
-                            <img src="images/basic_10.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료10">
-                            <img src="images/basic_11.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료11">
-                            <img src="images/basic_12.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료12">
-                            <img src="images/basic_13.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료13">
-                            <img src="images/basic_14.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료14">
-                            <img src="images/basic_15.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료15">
-                            <img src="images/basic_16.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료16">
+                            <img src="images/basic_01.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B1">
+                            <img src="images/basic_02.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B2">
+                            <img src="images/basic_03.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B3">
+                            <img src="images/basic_04.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B4">
+                            <img src="images/basic_05.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B5">
+                            <img src="images/basic_06.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B6">
+                            <img src="images/basic_07.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B7">
+                            <img src="images/basic_08.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B8">
+                            <img src="images/basic_09.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B9">
+                            <img src="images/basic_10.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B10">
+                            <img src="images/basic_11.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B11">
+                            <img src="images/basic_12.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B12">
+                            <img src="images/basic_13.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B13">
+                            <img src="images/basic_14.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B14">
+                            <img src="images/basic_15.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B15">
+                            <img src="images/basic_16.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B16">
+                            <img src="images/basic_17.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B17">
+                            <img src="images/basic_18.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B18">
+                            <img src="images/basic_19.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B19">
+                            <img src="images/basic_20.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B20">
+                            <img src="images/basic_21.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B21">
+                            <img src="images/basic_22.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B22">
 
-                            <img src="images/basic_01.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료1">
-                            <img src="images/basic_02.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료2">
-                            <img src="images/basic_03.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료3">
-                            <img src="images/basic_04.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료4">
-                            <img src="images/basic_05.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료5">
-                            <img src="images/basic_06.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료6">
-                            <img src="images/basic_07.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료7">
-                            <img src="images/basic_08.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료8">
-                            <img src="images/basic_09.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료9">
-                            <img src="images/basic_10.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료10">
-                            <img src="images/basic_11.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료11">
-                            <img src="images/basic_12.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료12">
-                            <img src="images/basic_13.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료13">
-                            <img src="images/basic_14.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료14">
-                            <img src="images/basic_15.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료15">
-                            <img src="images/basic_16.png" class="h-16 md:h-20 w-auto rounded-lg shadow-sm border border-gray-100" alt="자료16">
+                            <img src="images/basic_01.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B1">
+                            <img src="images/basic_02.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B2">
+                            <img src="images/basic_03.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B3">
+                            <img src="images/basic_04.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B4">
+                            <img src="images/basic_05.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B5">
+                            <img src="images/basic_06.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B6">
+                            <img src="images/basic_07.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B7">
+                            <img src="images/basic_08.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B8">
+                            <img src="images/basic_09.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B9">
+                            <img src="images/basic_10.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B10">
+                            <img src="images/basic_11.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B11">
+                            <img src="images/basic_12.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B12">
+                            <img src="images/basic_13.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B13">
+                            <img src="images/basic_14.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B14">
+                            <img src="images/basic_15.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B15">
+                            <img src="images/basic_16.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B16">
+                            <img src="images/basic_17.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B17">
+                            <img src="images/basic_18.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B18">
+                            <img src="images/basic_19.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B19">
+                            <img src="images/basic_20.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B20">
+                            <img src="images/basic_21.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B21">
+                            <img src="images/basic_22.png" class="h-32 md:h-40 w-auto rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow" alt="B22">
                         </div>
                     </div>
                 </div>
-                <div class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
-                <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+                <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent pointer-events-none z-10"></div>
+                <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent pointer-events-none z-10"></div>
             </div>
         </section>
 
