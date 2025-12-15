@@ -24,13 +24,7 @@
         .delay-400 { animation-delay: 0.4s; }
         .delay-600 { animation-delay: 0.6s; }
 
-        .nav-active {
-            color: #4A80F3;
-            font-weight: 700;
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            text-underline-offset: 4px;
-        }
+        /* [수정됨]: .nav-active 클래스를 제거하고 JS를 통해 Tailwind 클래스를 직접 적용합니다. */
 
         /* 배경 격자 패턴 */
         .bg-grid-pattern {
@@ -59,10 +53,10 @@
             <nav class="flex justify-between items-center h-20">
                 <a href="index.html" class="text-xl font-bold text-[#333333] hover:text-[#4A80F3] transition-colors">최재영</a>
                 <div class="hidden md:flex space-x-8 font-medium text-[#555555]">
-                    <a href="index.html" class="nav-active hover:text-[#4A80F3] transition-colors">메인</a>
+                    <a href="index.html" class="hover:text-[#4A80F3] transition-colors">메인</a>
                     <a href="portfolio.html" class="hover:text-[#4A80F3] transition-colors">포트폴리오</a>
-                    <a href="resume.html" class="hover:text-[#4A80F3] transition-colors">경력기술서</a>
                     <a href="proposal.html" class="hover:text-[#4A80F3] transition-colors">미래 기여 제안</a>
+                    <a href="resume.html" class="hover:text-[#4A80F3] transition-colors">경력기술서</a>
                 </div>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-500 hover:text-black">
@@ -205,6 +199,24 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // [추가된 JS]: 내비게이션 바의 현재 페이지를 하이라이트하는 로직
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('header nav a');
+            // index.html은 경로가 '/' 또는 ''일 수 있으므로, 'index.html'로 통일하여 처리
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html'; 
+            links.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                // index.html 파일명 또는 빈 경로가 일치하는지 확인
+                if (linkPage === currentPage || (linkPage === 'index.html' && currentPage === '')) {
+                    // TailwindCSS 클래스를 직접 적용하여 활성 스타일 지정
+                    link.classList.add('text-[#4A80F3]', 'font-bold', 'underline', 'decoration-2', 'underline-offset-4');
+                    link.classList.remove('hover:text-[#4A80F3]');
+                } else {
+                    link.classList.remove('text-[#4A80F3]', 'font-bold', 'underline', 'decoration-2', 'underline-offset-4');
+                }
+            });
+        });
+
         const swiperPremium = new Swiper('.mySwiperPremium', {
             slidesPerView: 'auto',
             spaceBetween: 24,
